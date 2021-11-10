@@ -6,10 +6,23 @@
 
 // adding a todo type a command
 
+let quit = "quit";
 let askQuestion = prompt("Welcome, choose between - new, list, delete and quit");
-let quit = "quit"
 
-while(askQuestion !== quit.toLocaleLowerCase()){
-  // let options = ["new", "list", "delete", "quit"];
-  console.log("its working");
+while(askQuestion !== quit){  //while this condtion is true alays do this 
+  let todoList = [];
+  if(askQuestion === "new"){
+     let newTodo = prompt("please add new todo");
+     todoList.push(newTodo);
+     for(let i = 0; i <= newTodo.length; i++){
+       console.log(newTodo[i]);
+     }
+  } else if(askQuestion === "list"){
+     askQuestion = prompt("Welcome, choose between - new, list, delete and quit");
+    console.log("list");
+  } else if(askQuestion === "delete"){
+     askQuestion = prompt("Welcome, choose between - new, list, delete and quit");
+    console.log("delete");
+  } 
+  break;
 }
