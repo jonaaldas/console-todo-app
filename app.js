@@ -6,23 +6,25 @@
 
 // adding a todo type a command
 
-let quit = "quit";
-let askQuestion = prompt("Welcome, choose between - new, list, delete and quit");
-
-while(askQuestion !== quit){  //while this condtion is true alays do this 
-  let todoList = [];
-  if(askQuestion === "new"){
-     let newTodo = prompt("please add new todo");
-     todoList.push(newTodo);
-     for(let i = 0; i <= newTodo.length; i++){
-       console.log(newTodo[i]);
-     }
-  } else if(askQuestion === "list"){
-     askQuestion = prompt("Welcome, choose between - new, list, delete and quit");
-    console.log("list");
-  } else if(askQuestion === "delete"){
-     askQuestion = prompt("Welcome, choose between - new, list, delete and quit");
-    console.log("delete");
-  } 
-  break;
+let ans = prompt("Welcome, choose between new, list, delete and quit");
+let todo = ["hello", 123];
+while(ans !== "quit"){  //while this condtion is true alays do this 
+  if(ans === "list"){
+    console.log("**************");
+    for(let i = 0; i < todo.length; i++){
+      console.log(`${i}: ${todo[i]}`);
+    }
+    console.log("**************");
+  } else if(ans === "new"){
+    const newTodo = prompt("please add a new todo");
+    todo.push(newTodo);
+    console.log(`${newTodo}: has been added`);
+  } else if(ans === "delete"){
+    let dlt = parseInt(prompt("please chooose the number you want to delete"));
+    todo.splice(dlt, 1);
+    console.log(`${dlt}: has been deleted`)
+  }
+  ans = prompt("Choose between new, list, delete and quit");
 }
+
+console.log("okay you quit");
